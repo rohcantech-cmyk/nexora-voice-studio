@@ -1,4 +1,5 @@
-   const UI_URL = "https://nexora-voice-studio-ui.bgmihere16.workers.dev";
+const UI_HTML_URL =
+  "https://raw.githubusercontent.com/rohcantech-cmyk/nexora-voice-studio/main/index-21.html";
 
 export default {
   async fetch(request, env) {
@@ -100,13 +101,24 @@ export default {
       }
     }
 
-    // NEXORA Voice Studio UI
-    const target = new URL(UI_URL);
-    target.pathname = url.pathname;
-    target.search = url.search;
+    // Serve NEXORA Voice Studio UI
+    if (url.pathname === "/" || url.pathname === "/index.html") {
+      const ui = await fetch(UI_HTML_URL);
 
-    return fetch(
-      new Request(target.toString(), request)
-    );
+      if (!ui.ok) {
+        return new Response("NEXORA Voice Studio UI unavailable.", {
+          status: 502
+        });
+      }
+
+      return new Response(await ui.text(), {
+        headers: {
+          "Content-Type": "text/html; charset=UTF-8",
+          "Cache-Control": "no-cache"
+        }
+      });
+    }
+
+    return new Response("Not Found", { status: 404 });
   }
-};     
+};
