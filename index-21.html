@@ -6,28 +6,65 @@
 <title>ROHCAN Creator Voice Studio</title>
 <style>
 :root{--bg:#07101f;--panel:#0d182b;--panel2:#101f35;--line:#223652;--text:#f5f8ff;--muted:#9eb0ca;--gold:#e7bd68;--blue:#66a7ff;--good:#63e6be}
-*{box-sizing:border-box} body{margin:0;background:radial-gradient(900px 500px at 50% -10%,#17325a 0%,#07101f 55%);color:var(--text);font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,sans-serif}
-.wrap{max-width:900px;margin:auto;padding:18px 14px 42px}.top{display:flex;align-items:center;justify-content:space-between;gap:12px;margin-bottom:14px}
-.brand{display:flex;align-items:center;gap:10px}.orb{width:42px;height:42px;border-radius:13px;background:linear-gradient(145deg,#152b4d,#07101f);border:1px solid #31517a;display:grid;place-items:center;font-weight:900;color:var(--gold);box-shadow:0 0 30px #1d5ba633}.brand b{font-size:17px}.brand span{display:block;color:var(--muted);font-size:11px;margin-top:2px}
+*{box-sizing:border-box}
+body{margin:0;background:radial-gradient(900px 500px at 50% -10%,#17325a 0%,#07101f 55%);color:var(--text);font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,sans-serif}
+.wrap{max-width:900px;margin:auto;padding:18px 14px 42px}
+.top{display:flex;align-items:center;justify-content:space-between;gap:12px;margin-bottom:14px}
+.brand{display:flex;align-items:center;gap:10px}
+.orb{width:42px;height:42px;border-radius:13px;background:linear-gradient(145deg,#152b4d,#07101f);border:1px solid #31517a;display:grid;place-items:center;font-weight:900;color:var(--gold);box-shadow:0 0 30px #1d5ba633}
+.brand b{font-size:17px}
+.brand span{display:block;color:var(--muted);font-size:11px;margin-top:2px}
 .status{font-size:11px;color:var(--good);border:1px solid #2a705d;background:#0b302766;padding:7px 9px;border-radius:99px}
-.hero{padding:18px;border:1px solid var(--line);border-radius:22px;background:linear-gradient(145deg,#10213aee,#091322ee);box-shadow:0 18px 60px #0006;margin-bottom:14px}.hero h1{margin:0 0 7px;font-size:25px;letter-spacing:-.5px}.hero p{margin:0;color:var(--muted);font-size:13px;line-height:1.55}
-.card{border:1px solid var(--line);border-radius:18px;background:#0b1627dd;padding:14px;margin-top:12px}.label{font-size:11px;color:var(--muted);text-transform:uppercase;letter-spacing:.11em;margin-bottom:8px}
-textarea{width:100%;min-height:190px;resize:vertical;background:#07111f;color:var(--text);border:1px solid #28415f;border-radius:14px;padding:14px;font:15px/1.65 inherit;outline:none}textarea:focus{border-color:#4f8ed7;box-shadow:0 0 0 3px #4f8ed71c}
-.row{display:grid;grid-template-columns:1fr 1fr;gap:10px}.row3{display:grid;grid-template-columns:repeat(3,1fr);gap:10px}
-select,input[type=range]{width:100%} select{background:#091525;color:var(--text);border:1px solid #28415f;border-radius:12px;padding:11px}
-.rangebox{background:#091525;border:1px solid #213752;border-radius:12px;padding:10px}.rangehead{display:flex;justify-content:space-between;color:var(--muted);font-size:11px;margin-bottom:7px}.rangehead b{color:var(--text)}
-.modes{display:flex;gap:7px;overflow:auto;padding-bottom:2px}.mode{white-space:nowrap;border:1px solid #28415f;background:#0a1627;color:#b9c7db;padding:9px 12px;border-radius:999px;font-size:12px}.mode.active{border-color:#b78b3d;background:#2a2111;color:#ffd98a}
-.tools{display:flex;gap:8px;flex-wrap:wrap}.tag{border:1px dashed #385574;background:#0b1829;color:#b8c7db;border-radius:10px;padding:8px 10px;font-size:12px}
-.actions{display:grid;grid-template-columns:1.5fr 1fr;gap:9px;margin-top:13px}.btn{border:0;border-radius:13px;padding:13px 14px;font-weight:800;font-size:13px}.primary{background:linear-gradient(135deg,#e6bd68,#b57c25);color:#171006;box-shadow:0 10px 30px #d39b3c26}.secondary{background:#13243a;color:#e9f1ff;border:1px solid #2b4563}
-.audio{margin-top:12px}.audio audio{width:100%}.download{display:block;text-align:center;text-decoration:none;margin-top:9px}
-.note{color:#8ea2bd;font-size:11px;line-height:1.5;margin-top:9px}.msg{display:none;margin-top:10px;border-radius:12px;padding:10px 12px;font-size:12px}.ok{display:block;background:#0b3027;color:#8ff0cf;border:1px solid #286c5b}.err{display:block;background:#35151a;color:#ffb5bd;border:1px solid #75333d}
-@media(max-width:620px){.row,.row3{grid-template-columns:1fr}.hero h1{font-size:22px}.actions{grid-template-columns:1fr}}
+.hero{padding:18px;border:1px solid var(--line);border-radius:22px;background:linear-gradient(145deg,#10213aee,#091322ee);box-shadow:0 18px 60px #0006;margin-bottom:14px}
+.hero h1{margin:0 0 7px;font-size:25px;letter-spacing:-.5px}
+.hero p{margin:0;color:var(--muted);font-size:13px;line-height:1.55}
+.card{border:1px solid var(--line);border-radius:18px;background:#0b1627dd;padding:14px;margin-top:12px}
+.label{font-size:11px;color:var(--muted);text-transform:uppercase;letter-spacing:.11em;margin-bottom:8px}
+textarea{width:100%;min-height:190px;resize:vertical;background:#07111f;color:var(--text);border:1px solid #28415f;border-radius:14px;padding:14px;font:15px/1.65 inherit;outline:none}
+textarea:focus{border-color:#4f8ed7;box-shadow:0 0 0 3px #4f8ed71c}
+.row{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.row3{display:grid;grid-template-columns:repeat(3,1fr);gap:10px}
+select,input[type=range]{width:100%}
+select{background:#091525;color:var(--text);border:1px solid #28415f;border-radius:12px;padding:11px}
+.rangebox{background:#091525;border:1px solid #213752;border-radius:12px;padding:10px}
+.rangehead{display:flex;justify-content:space-between;color:var(--muted);font-size:11px;margin-bottom:7px}
+.rangehead b{color:var(--text)}
+.modes{display:flex;gap:7px;overflow:auto;padding-bottom:2px}
+.mode{white-space:nowrap;border:1px solid #28415f;background:#0a1627;color:#b9c7db;padding:9px 12px;border-radius:999px;font-size:12px}
+.mode.active{border-color:#b78b3d;background:#2a2111;color:#ffd98a}
+.tools{display:flex;gap:8px;flex-wrap:wrap}
+.tag{border:1px dashed #385574;background:#0b1829;color:#b8c7db;border-radius:10px;padding:8px 10px;font-size:12px}
+.actions{display:grid;grid-template-columns:1.5fr 1fr;gap:9px;margin-top:13px}
+.btn{border:0;border-radius:13px;padding:13px 14px;font-weight:800;font-size:13px}
+.primary{background:linear-gradient(135deg,#e6bd68,#b57c25);color:#171006;box-shadow:0 10px 30px #d39b3c26}
+.secondary{background:#13243a;color:#e9f1ff;border:1px solid #2b4563}
+.audio{margin-top:12px}
+.audio audio{width:100%}
+.download{display:block;text-align:center;text-decoration:none;margin-top:9px}
+.note{color:#8ea2bd;font-size:11px;line-height:1.5;margin-top:9px}
+.msg{display:none;margin-top:10px;border-radius:12px;padding:10px 12px;font-size:12px}
+.ok{display:block;background:#0b3027;color:#8ff0cf;border:1px solid #286c5b}
+.err{display:block;background:#35151a;color:#ffb5bd;border:1px solid #75333d}
+
+@media(max-width:620px){
+.row,.row3{grid-template-columns:1fr}
+.hero h1{font-size:22px}
+.actions{grid-template-columns:1fr}
+}
 </style>
 </head>
+
 <body>
 <div class="wrap">
+
   <div class="top">
-    <div class="brand"><div class="orb">R</div><div><b>ROHCAN Creator Voice Studio</b><span>NEXORA voice-over engine</span></div></div>
+    <div class="brand">
+      <div class="orb">R</div>
+      <div>
+        <b>ROHCAN Creator Voice Studio</b>
+        <span>NEXORA voice-over engine</span>
+      </div>
+    </div>
     <div class="status">SARVAM • BULBUL V3 • CINEMATIC</div>
   </div>
 
@@ -38,12 +75,20 @@ select,input[type=range]{width:100%} select{background:#091525;color:var(--text)
 
   <section class="card">
     <div class="label">Voice-over script</div>
-    <textarea id="script" placeholder="Example: कल्पना कीजिए... एक ऐसी दुनिया, जहाँ AI सिर्फ जवाब नहीं देता... बल्कि आपके साथ सोचता है।"></textarea>
-    <div class="note"><span id="count">0</span>/2500 characters • Best pronunciation: Hindi words in देवनागरी + English terms normally.</div>
+
+    <textarea
+      id="script"
+      placeholder="Example: कल्पना कीजिए... एक ऐसी दुनिया, जहाँ AI सिर्फ जवाब नहीं देता... बल्कि आपके साथ सोचता है।"
+    ></textarea>
+
+    <div class="note">
+      <span id="count">0</span>/2500 characters • Best pronunciation: Hindi words in देवनागरी + English terms normally.
+    </div>
   </section>
 
   <section class="card">
     <div class="label">Voice</div>
+
     <div class="row">
       <select id="voice">
         <option value="shubh">Shubh — Hindi Male • deep/narration</option>
@@ -53,6 +98,7 @@ select,input[type=range]{width:100%} select{background:#091525;color:var(--text)
         <option value="suhani">Suhani — Female • warm</option>
         <option value="ishita">Ishita — Female • expressive</option>
       </select>
+
       <select id="language">
         <option value="hi-IN">Hindi / Hinglish</option>
         <option value="en-IN">English India</option>
@@ -66,6 +112,7 @@ select,input[type=range]{width:100%} select{background:#091525;color:var(--text)
 
   <section class="card">
     <div class="label">Direction</div>
+
     <div class="modes" id="modes">
       <button class="mode active" data-rate="0.92" data-temp="0.52">Cinematic</button>
       <button class="mode" data-rate="0.96" data-temp="0.48">Documentary</button>
@@ -75,122 +122,634 @@ select,input[type=range]{width:100%} select{background:#091525;color:var(--text)
       <button class="mode" data-rate="1.12" data-temp="0.68">Energetic</button>
       <button class="mode" data-rate="0.86" data-temp="0.40">Calm</button>
     </div>
+
     <div class="row3" style="margin-top:10px">
-      <div class="rangebox"><div class="rangehead"><span>Pace</span><b id="paceVal">0.92×</b></div><input id="pace" type="range" min=".5" max="1.5" step=".01" value=".92"></div>
-      <div class="rangebox"><div class="rangehead"><span>Expressiveness</span><b id="tempVal">0.52</b></div><input id="temp" type="range" min=".1" max="1" step=".01" value=".52"></div>
-      <div class="rangebox"><div class="rangehead"><span>Pause feel</span><b id="pauseVal">Medium</b></div><input id="pause" type="range" min="0" max="2" step="1" value="1"></div>
+
+      <div class="rangebox">
+        <div class="rangehead">
+          <span>Pace</span>
+          <b id="paceVal">0.92×</b>
+        </div>
+        <input id="pace" type="range" min=".5" max="1.5" step=".01" value=".92">
+      </div>
+
+      <div class="rangebox">
+        <div class="rangehead">
+          <span>Expressiveness</span>
+          <b id="tempVal">0.52</b>
+        </div>
+        <input id="temp" type="range" min=".1" max="1" step=".01" value=".52">
+      </div>
+
+      <div class="rangebox">
+        <div class="rangehead">
+          <span>Pause feel</span>
+          <b id="pauseVal">Medium</b>
+        </div>
+        <input id="pause" type="range" min="0" max="2" step="1" value="1">
+      </div>
+
     </div>
   </section>
 
   <section class="card">
+
     <div class="label">Direction tags</div>
+
     <div class="tools">
       <button class="tag" data-insert=" [pause] ">＋ Pause</button>
       <button class="tag" data-insert=" [emphasis] ">＋ Emphasis</button>
       <button class="tag" data-insert=" [dramatic] ">＋ Dramatic</button>
       <button class="tag" data-insert=" [whisper] ">＋ Whisper</button>
     </div>
-    <div class="note">Tags become natural pauses. After generation, Cinematic Master adds subtle room/reverb, warmth, compression and loudness polish locally in your phone browser.</div>
+
+    <div class="note">
+      Tags become natural pauses. After generation, Cinematic Master adds subtle room/reverb, warmth, compression and loudness polish locally in your phone browser.
+    </div>
+
   </section>
 
-  
-<section class="card">
-  <div class="label">Cinematic Master</div>
-  <div class="row3">
-    <div class="rangebox"><div class="rangehead"><span>Room / Reverb</span><b id="roomVal">18%</b></div><input id="room" type="range" min="0" max="35" step="1" value="18"></div>
-    <div class="rangebox"><div class="rangehead"><span>Warmth</span><b id="warmVal">12%</b></div><input id="warm" type="range" min="0" max="30" step="1" value="12"></div>
-    <div class="rangebox"><div class="rangehead"><span>Master</span><b id="masterVal">100%</b></div><input id="master" type="range" min="80" max="115" step="1" value="100"></div>
-  </div>
-  <div class="note">Recommended Cinematic: Room 18% • Warmth 12% • Master 100%. Clean MP3 remains available; the processed cinematic file is generated locally.</div>
-</section>
-<div class="actions">
+  <section class="card">
+
+    <div class="label">Cinematic Master</div>
+
+    <div class="row3">
+
+      <div class="rangebox">
+        <div class="rangehead">
+          <span>Room / Reverb</span>
+          <b id="roomVal">18%</b>
+        </div>
+        <input id="room" type="range" min="0" max="35" step="1" value="18">
+      </div>
+
+      <div class="rangebox">
+        <div class="rangehead">
+          <span>Warmth</span>
+          <b id="warmVal">12%</b>
+        </div>
+        <input id="warm" type="range" min="0" max="30" step="1" value="12">
+      </div>
+
+      <div class="rangebox">
+        <div class="rangehead">
+          <span>Master</span>
+          <b id="masterVal">100%</b>
+        </div>
+        <input id="master" type="range" min="80" max="115" step="1" value="100">
+      </div>
+
+    </div>
+
+    <div class="note">
+      Recommended Cinematic: Room 18% • Warmth 12% • Master 100%.
+      Clean MP3 remains available; the processed cinematic file is generated locally.
+    </div>
+
+  </section>
+
+  <div class="actions">
     <button class="btn primary" id="generate">Generate Neural Voice</button>
     <button class="btn secondary" id="stop">Stop</button>
   </div>
+
   <div id="msg" class="msg"></div>
 
   <section class="card audio" id="audioCard" style="display:none">
+
     <div class="label">Generated voice</div>
+
     <audio id="audio" controls></audio>
-    <a id="download" class="btn secondary download" download="rohcan-nexora-voice-clean.mp3">⬇ Download Clean MP3</a>
-<a id="cinDownload" class="btn primary download" download="rohcan-nexora-voice-cinematic.wav" style="margin-top:7px">🎬 Download Cinematic Master</a>
+
+    <a
+      id="download"
+      class="btn secondary download"
+      download="rohcan-nexora-voice-clean.mp3"
+    >
+      ⬇ Download Clean MP3
+    </a>
+
+    <a
+      id="cinDownload"
+      class="btn primary download"
+      download="rohcan-nexora-voice-cinematic.wav"
+      style="margin-top:7px"
+    >
+      🎬 Download Cinematic Master
+    </a>
+
   </section>
+
 </div>
 
 <script>
-const $=id=>document.getElementById(id);
-let busy=false,currentUrl=null,masterUrl=null;
-const script=$('script'),count=$('count'),msg=$('msg'),audio=$('audio'),audioCard=$('audioCard'),download=$('download'),cinDownload=$('cinDownload');
-script.addEventListener('input',()=>count.textContent=script.value.length);
-document.querySelectorAll('.mode').forEach(b=>b.addEventListener('click',()=>{
- document.querySelectorAll('.mode').forEach(x=>x.classList.remove('active'));b.classList.add('active');
- $('pace').value=b.dataset.rate;$('temp').value=b.dataset.temp;updateRanges();
-}));
-['pace','temp','pause','room','warm','master'].forEach(id=>$(id).addEventListener('input',updateRanges));
+
+const $ = id => document.getElementById(id);
+
+let busy = false;
+let currentUrl = null;
+let masterUrl = null;
+
+const script = $('script');
+const count = $('count');
+const msg = $('msg');
+const audio = $('audio');
+const audioCard = $('audioCard');
+const download = $('download');
+const cinDownload = $('cinDownload');
+
+script.addEventListener('input', () => {
+  count.textContent = script.value.length;
+});
+
+document.querySelectorAll('.mode').forEach(b => {
+
+  b.addEventListener('click', () => {
+
+    document
+      .querySelectorAll('.mode')
+      .forEach(x => x.classList.remove('active'));
+
+    b.classList.add('active');
+
+    $('pace').value = b.dataset.rate;
+    $('temp').value = b.dataset.temp;
+
+    updateRanges();
+
+  });
+
+});
+
+[
+  'pace',
+  'temp',
+  'pause',
+  'room',
+  'warm',
+  'master'
+].forEach(id => {
+
+  $(id).addEventListener('input', updateRanges);
+
+});
+
 function updateRanges(){
- $('paceVal').textContent=(+$('pace').value).toFixed(2)+'×';
- $('tempVal').textContent=(+$('temp').value).toFixed(2);
- $('pauseVal').textContent=['Low','Medium','High'][+$('pause').value];
- $('roomVal').textContent=$('room').value+'%';$('warmVal').textContent=$('warm').value+'%';$('masterVal').textContent=$('master').value+'%';
+
+  $('paceVal').textContent =
+    (+$('pace').value).toFixed(2) + '×';
+
+  $('tempVal').textContent =
+    (+$('temp').value).toFixed(2);
+
+  $('pauseVal').textContent =
+    ['Low','Medium','High'][+$('pause').value];
+
+  $('roomVal').textContent =
+    $('room').value + '%';
+
+  $('warmVal').textContent =
+    $('warm').value + '%';
+
+  $('masterVal').textContent =
+    $('master').value + '%';
+
 }
-document.querySelectorAll('.tag').forEach(b=>b.addEventListener('click',()=>{
- const a=script.selectionStart,bp=script.selectionEnd;script.value=script.value.slice(0,a)+b.dataset.insert+script.value.slice(bp);
- script.focus();script.selectionStart=script.selectionEnd=a+b.dataset.insert.length;count.textContent=script.value.length;
-}));
-function show(t,k){msg.textContent=t;msg.className='msg '+k}
-$('stop').onclick=()=>{audio.pause();audio.currentTime=0};
-function base64Blob(b64,type){const bytes=Uint8Array.from(atob(b64),c=>c.charCodeAt(0));return new Blob([bytes],{type})}
-function audioBufferToWav(buffer){
- const ch=buffer.numberOfChannels,rate=buffer.sampleRate,len=buffer.length;
- const dataLen=len*ch*2,buf=new ArrayBuffer(44+dataLen),v=new DataView(buf);
- let o=0;const ws=(s)=>{for(let i=0;i<s.length;i++)v.setUint8(o++,s.charCodeAt(i))},u32=n=>{v.setUint32(o,n,true);o+=4},u16=n=>{v.setUint16(o,n,true);o+=2};
- ws('RIFF');u32(36+dataLen);ws('WAVE');ws('fmt ');u32(16);u16(1);u16(ch);u32(rate);u32(rate*ch*2);u16(ch*2);u16(16);ws('data');u32(dataLen);
- const C=Math.max(0,Math.min(1,+$('master').value/100)),warm=+$('warm').value/100;
- for(let i=0;i<len;i++)for(let c=0;c<ch;c++){let x=buffer.getChannelData(c)[i];x=Math.tanh(x*(1.05+warm*.9))*C; x=Math.max(-1,Math.min(1,x));v.setInt16(o,x<0?x*32768:x*32767,true);o+=2}
- return new Blob([buf],{type:'audio/wav'});
+
+document.querySelectorAll('.tag').forEach(b => {
+
+  b.addEventListener('click', () => {
+
+    const a = script.selectionStart;
+    const bp = script.selectionEnd;
+
+    script.value =
+      script.value.slice(0,a) +
+      b.dataset.insert +
+      script.value.slice(bp);
+
+    script.focus();
+
+    script.selectionStart =
+      script.selectionEnd =
+      a + b.dataset.insert.length;
+
+    count.textContent =
+      script.value.length;
+
+  });
+
+});
+
+function show(t,k){
+
+  msg.textContent = t;
+  msg.className = 'msg ' + k;
+
 }
-async function makeCinematic(blob){
- const ac=new (window.AudioContext||window.webkitAudioContext)();
- const arr=await blob.arrayBuffer(),src=await ac.decodeAudioData(arr);
- const out=ac.createBuffer(src.numberOfChannels,src.length,src.sampleRate);
- const room=+$('room').value/100;
- for(let c=0;c<src.numberOfChannels;c++){
-   const input=src.getChannelData(c),output=out.getChannelData(c);
-   const delay=Math.max(1,Math.floor(src.sampleRate*(0.055+room*.0009)));
-   const delay2=Math.max(1,Math.floor(src.sampleRate*(0.105+room*.0015)));
-   for(let i=0;i<input.length;i++){
-     let x=input[i];
-     let wet=0;
-     if(room>0){
-       if(i-delay>=0) wet+=input[i-delay]*room*.30;
-       if(i-delay2>=0) wet+=input[i-delay2]*room*.18;
-       if(i-delay*2>=0) wet+=input[i-delay*2]*room*.10;
-     }
-     output[i]=Math.max(-1,Math.min(1,x*(1-room*.12)+wet));
-   }
- }
- const wav=audioBufferToWav(out);await ac.close();return wav;
-}
-$('generate').onclick=async()=>{
- if(busy)return;const text=script.value.trim();
- if(!text){show('Pehle script paste karo.','err');return}
- if(text.length>2500){show('Script 2500 characters se chhoti rakho.','err');return}
- busy=true;$('generate').textContent='Generating…';show('Neural cinematic voice generate ho rahi hai…','ok');
- try{
-  const r=await fetch('https://ra-voice-studio.bgmihere16.workers.dev/api/tts',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({
-   text,speaker:$('voice').value,language_code:$('language').value,pace:+$('pace').value,temperature:+$('temp').value
-  })});
-  const data=await r.json();if(!r.ok)throw new Error(data.error||'TTS request failed');
-  const cleanBlob=base64Blob(data.audio,data.mime||'audio/mpeg');
-  if(currentUrl)URL.revokeObjectURL(currentUrl);currentUrl=URL.createObjectURL(cleanBlob);
-  audio.src=currentUrl;download.href=currentUrl;
-  show('Voice ready. Cinematic master process ho raha hai…','ok');
-  if(masterUrl)URL.revokeObjectURL(masterUrl);
-  const cinematic=await makeCinematic(cleanBlob);masterUrl=URL.createObjectURL(cinematic);cinDownload.href=masterUrl;
-  audioCard.style.display='block';show('🎬 Cinematic Master ready — play karke check karo aur download karo.','ok');
- }catch(e){show(e.message,'err')}finally{busy=false;$('generate').textContent='Generate Neural Voice'}
+
+$('stop').onclick = () => {
+
+  audio.pause();
+  audio.currentTime = 0;
+
 };
+
+function base64Blob(b64,type){
+
+  if(!b64){
+    throw new Error('Server returned no audio data.');
+  }
+
+  const bytes =
+    Uint8Array.from(
+      atob(b64),
+      c => c.charCodeAt(0)
+    );
+
+  return new Blob([bytes],{type});
+
+}
+
+function audioBufferToWav(buffer){
+
+  const ch = buffer.numberOfChannels;
+  const rate = buffer.sampleRate;
+  const len = buffer.length;
+
+  const dataLen = len * ch * 2;
+
+  const buf =
+    new ArrayBuffer(44 + dataLen);
+
+  const v =
+    new DataView(buf);
+
+  let o = 0;
+
+  const ws = s => {
+
+    for(let i=0;i<s.length;i++){
+      v.setUint8(o++,s.charCodeAt(i));
+    }
+
+  };
+
+  const u32 = n => {
+
+    v.setUint32(o,n,true);
+    o += 4;
+
+  };
+
+  const u16 = n => {
+
+    v.setUint16(o,n,true);
+    o += 2;
+
+  };
+
+  ws('RIFF');
+  u32(36 + dataLen);
+
+  ws('WAVE');
+
+  ws('fmt ');
+  u32(16);
+  u16(1);
+  u16(ch);
+  u32(rate);
+  u32(rate * ch * 2);
+  u16(ch * 2);
+  u16(16);
+
+  ws('data');
+  u32(dataLen);
+
+  const C =
+    Math.max(
+      0,
+      Math.min(
+        1,
+        +$('master').value / 100
+      )
+    );
+
+  const warm =
+    +$('warm').value / 100;
+
+  for(let i=0;i<len;i++){
+
+    for(let c=0;c<ch;c++){
+
+      let x =
+        buffer.getChannelData(c)[i];
+
+      x =
+        Math.tanh(
+          x * (1.05 + warm * .9)
+        ) * C;
+
+      x =
+        Math.max(
+          -1,
+          Math.min(1,x)
+        );
+
+      v.setInt16(
+        o,
+        x < 0
+          ? x * 32768
+          : x * 32767,
+        true
+      );
+
+      o += 2;
+
+    }
+
+  }
+
+  return new Blob(
+    [buf],
+    {type:'audio/wav'}
+  );
+
+}
+
+async function makeCinematic(blob){
+
+  const ac =
+    new (
+      window.AudioContext ||
+      window.webkitAudioContext
+    )();
+
+  const arr =
+    await blob.arrayBuffer();
+
+  const src =
+    await ac.decodeAudioData(arr);
+
+  const out =
+    ac.createBuffer(
+      src.numberOfChannels,
+      src.length,
+      src.sampleRate
+    );
+
+  const room =
+    +$('room').value / 100;
+
+  for(let c=0;c<src.numberOfChannels;c++){
+
+    const input =
+      src.getChannelData(c);
+
+    const output =
+      out.getChannelData(c);
+
+    const delay =
+      Math.max(
+        1,
+        Math.floor(
+          src.sampleRate *
+          (0.055 + room * .0009)
+        )
+      );
+
+    const delay2 =
+      Math.max(
+        1,
+        Math.floor(
+          src.sampleRate *
+          (0.105 + room * .0015)
+        )
+      );
+
+    for(let i=0;i<input.length;i++){
+
+      let x = input[i];
+      let wet = 0;
+
+      if(room > 0){
+
+        if(i-delay >= 0){
+          wet +=
+            input[i-delay] *
+            room *
+            .30;
+        }
+
+        if(i-delay2 >= 0){
+          wet +=
+            input[i-delay2] *
+            room *
+            .18;
+        }
+
+        if(i-delay*2 >= 0){
+          wet +=
+            input[i-delay*2] *
+            room *
+            .10;
+        }
+
+      }
+
+      output[i] =
+        Math.max(
+          -1,
+          Math.min(
+            1,
+            x * (1 - room * .12) + wet
+          )
+        );
+
+    }
+
+  }
+
+  const wav =
+    audioBufferToWav(out);
+
+  await ac.close();
+
+  return wav;
+
+}
+
+$('generate').onclick = async () => {
+
+  if(busy) return;
+
+  const text =
+    script.value.trim();
+
+  if(!text){
+
+    show(
+      'Pehle script paste karo.',
+      'err'
+    );
+
+    return;
+
+  }
+
+  if(text.length > 2500){
+
+    show(
+      'Script 2500 characters se chhoti rakho.',
+      'err'
+    );
+
+    return;
+
+  }
+
+  busy = true;
+
+  $('generate').textContent =
+    'Generating…';
+
+  show(
+    'Neural cinematic voice generate ho rahi hai…',
+    'ok'
+  );
+
+  try{
+
+    const r =
+      await fetch(
+        'https://ra-voice-studio.bgmihere16.workers.dev/api/tts',
+        {
+          method:'POST',
+          headers:{
+            'Content-Type':'application/json'
+          },
+          body:JSON.stringify({
+
+            text,
+
+            speaker:
+              $('voice').value,
+
+            language_code:
+              $('language').value,
+
+            pace:
+              +$('pace').value,
+
+            temperature:
+              +$('temp').value
+
+          })
+        }
+      );
+
+    const data =
+      await r.json();
+
+    if(!r.ok){
+
+      throw new Error(
+        data.error ||
+        'TTS request failed'
+      );
+
+    }
+
+    /*
+      IMPORTANT FIX:
+      Cloudflare Worker returns:
+      { audio_base64: "..." }
+
+      NOT:
+      { audio: "..." }
+    */
+
+    const cleanBlob =
+      base64Blob(
+        data.audio_base64,
+        'audio/mpeg'
+      );
+
+    if(currentUrl){
+
+      URL.revokeObjectURL(
+        currentUrl
+      );
+
+    }
+
+    currentUrl =
+      URL.createObjectURL(
+        cleanBlob
+      );
+
+    audio.src =
+      currentUrl;
+
+    download.href =
+      currentUrl;
+
+    show(
+      'Voice ready. Cinematic master process ho raha hai…',
+      'ok'
+    );
+
+    if(masterUrl){
+
+      URL.revokeObjectURL(
+        masterUrl
+      );
+
+    }
+
+    const cinematic =
+      await makeCinematic(
+        cleanBlob
+      );
+
+    masterUrl =
+      URL.createObjectURL(
+        cinematic
+      );
+
+    cinDownload.href =
+      masterUrl;
+
+    audioCard.style.display =
+      'block';
+
+    show(
+      '🎬 Cinematic Master ready — play karke check karo aur download karo.',
+      'ok'
+    );
+
+  }catch(e){
+
+    show(
+      e.message ||
+      'Something went wrong.',
+      'err'
+    );
+
+  }finally{
+
+    busy = false;
+
+    $('generate').textContent =
+      'Generate Neural Voice';
+
+  }
+
+};
+
 updateRanges();
+
 </script>
+
 </body>
 </html>
