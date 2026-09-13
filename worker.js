@@ -1,4 +1,4 @@
-const UI_URL = "https://nexora-voice-studio-ui.bgmihere16.workers.dev";
+   const UI_URL = "https://nexora-voice-studio-ui.bgmihere16.workers.dev";
 
 export default {
   async fetch(request, env) {
@@ -13,7 +13,7 @@ export default {
       });
     }
 
-    // Neural TTS API
+    // Neural TTS
     if (url.pathname === "/api/tts" && request.method === "POST") {
       try {
         if (!env.SARVAM_API_KEY) {
@@ -71,8 +71,7 @@ export default {
               error:
                 data?.error ||
                 data?.message ||
-                "Sarvam TTS request failed.",
-              details: data
+                "Sarvam TTS request failed."
             },
             { status: sarvam.status }
           );
@@ -93,13 +92,15 @@ export default {
 
       } catch (err) {
         return Response.json(
-          { error: err?.message || "TTS server error." },
+          {
+            error: err?.message || "TTS server error."
+          },
           { status: 500 }
         );
       }
     }
 
-    // Serve NEXORA Voice Studio UI
+    // NEXORA Voice Studio UI
     const target = new URL(UI_URL);
     target.pathname = url.pathname;
     target.search = url.search;
@@ -108,4 +109,4 @@ export default {
       new Request(target.toString(), request)
     );
   }
-};
+};     
